@@ -1,0 +1,114 @@
+/* ════════════════════════════════════════════════════════════
+   AI FIT MAP — tool.css
+   Tool detail page styling.
+   Phase: Content Expansion Foundation — placeholder styles.
+   ════════════════════════════════════════════════════════════ */
+
+.tool-hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: start;
+  padding: 48px 24px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.tool-hero__info h1 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: clamp(28px, 4vw, 40px);
+  margin: 0 0 4px;
+}
+
+.tool-provider { color: #5A6B62; font-size: 14px; margin: 0 0 12px; }
+.tool-tagline { font-size: 17px; color: #33443B; margin: 0 0 16px; max-width: 640px; }
+
+.tool-rating { display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; margin-bottom: 16px; }
+.tool-rating__overall { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 22px; color: #1F6E8C; }
+.tool-rating__detail { color: #5A6B62; font-size: 13px; }
+
+.tool-sponsored-badge {
+  display: inline-block;
+  background: #FFF3D6;
+  color: #8A5A00;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.tool-hero__actions { display: flex; flex-direction: column; gap: 10px; align-items: stretch; min-width: 200px; }
+.tool-hero__actions .btn { text-align: center; }
+
+.tool-body { max-width: 1100px; margin: 0 auto; padding: 8px 24px 64px; }
+
+.tool-body section { margin-top: 32px; }
+.tool-body h2 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 24px; }
+.tool-body h3 { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 17px; }
+
+.tool-details, .tool-pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.tool-details ul, .tool-pros-cons ul, .tool-features ul {
+  padding-left: 20px;
+  color: #33443B;
+  line-height: 1.7;
+}
+
+.tool-pros h3 { color: #1F6E8C; }
+.tool-cons h3 { color: #B4593A; }
+
+.faq-item { margin-bottom: 16px; }
+.faq-item h3 { font-size: 15px; }
+.faq-item p { color: #5A6B62; }
+
+.tool-related__list { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+
+.tool-related-card, .guide-tool-link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #E2EAE6;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s ease;
+}
+.tool-related-card:hover, .guide-tool-link:hover { box-shadow: 0 6px 20px rgba(40, 80, 60, 0.10); }
+.tool-related-card span, .guide-tool-link span { color: #5A6B62; font-size: 13px; }
+
+.tool-breadcrumbs { font-size: 13px; margin: 0 0 8px; }
+.tool-breadcrumbs a { color: #1F6E8C; font-weight: 600; text-decoration: none; }
+.tool-breadcrumbs a:hover { text-decoration: underline; }
+
+.tool-guides__list, .tool-comparisons__list { display: flex; flex-direction: column; gap: 8px; }
+.tool-guide-link, .tool-compare-link {
+  color: #1F6E8C;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid #E8EEEA;
+}
+.tool-guide-link:hover, .tool-compare-link:hover { text-decoration: underline; }
+
+.cat-tool-card__sponsored {
+  display: inline-block;
+  background: #FFF3D6;
+  color: #8A5A00;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+  .tool-hero { grid-template-columns: 1fr; }
+  .tool-details, .tool-pros-cons { grid-template-columns: 1fr; }
+}

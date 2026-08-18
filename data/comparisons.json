@@ -1,0 +1,248 @@
+[
+  {
+    "id": "compare-1",
+    "slug": "chatgpt-vs-claude",
+    "toolA": "chatgpt",
+    "toolB": "claude",
+    "summary": "ChatGPT and Claude are the two most capable general-purpose AI assistants, but they excel in different areas. ChatGPT prioritizes versatility, speed, and feature breadth, while Claude emphasizes depth, nuance, and safety. Choosing between them depends on whether you need a fast all-rounder or a thoughtful long-form partner.",
+    "winnerByUseCase": [
+      {
+        "useCase": "Everyday questions and quick tasks",
+        "winner": "chatgpt",
+        "note": "ChatGPT's faster response times and broader feature set make it better for casual, high-frequency use."
+      },
+      {
+        "useCase": "Long-form writing and editing",
+        "winner": "claude",
+        "note": "Claude produces more nuanced, carefully structured prose and handles lengthy documents with its 200K context window."
+      },
+      {
+        "useCase": "Coding and technical explanations",
+        "winner": "chatgpt",
+        "note": "ChatGPT's code interpreter and broader programming knowledge give it an edge for most coding tasks."
+      },
+      {
+        "useCase": "Analyzing long documents and reports",
+        "winner": "claude",
+        "note": "Claude's massive context window lets you paste entire books or codebases for analysis without truncation."
+      },
+      {
+        "useCase": "Creative brainstorming and ideation",
+        "winner": "chatgpt",
+        "note": "ChatGPT is more playful and generative, making it better for rapid idea generation and exploration."
+      }
+    ],
+    "tableData": [
+      {
+        "feature": "Free tier quality",
+        "toolAValue": "Very capable (GPT-4o-mini)",
+        "toolBValue": "Limited (strict rate limits)"
+      },
+      {
+        "feature": "Context window",
+        "toolAValue": "128K tokens",
+        "toolBValue": "200K+ tokens"
+      },
+      {
+        "feature": "Web browsing",
+        "toolAValue": "Built-in (Plus/Team)",
+        "toolBValue": "Not available"
+      },
+      {
+        "feature": "Image generation",
+        "toolAValue": "DALL·E integrated",
+        "toolBValue": "No native generation"
+      },
+      {
+        "feature": "Voice mode",
+        "toolAValue": "Advanced voice conversations",
+        "toolBValue": "Not available"
+      },
+      {
+        "feature": "Safety and refusal standards",
+        "toolAValue": "Standard",
+        "toolBValue": "Higher (more cautious)"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Which is better for students?",
+        "a": "ChatGPT is generally better for students due to its free tier, web browsing for research, and broader feature set. However, Claude excels for thesis writing and analyzing long academic papers."
+      },
+      {
+        "q": "Can I use both tools together?",
+        "a": "Absolutely. Many professionals use ChatGPT for quick tasks and brainstorming, then switch to Claude for deep writing, editing, and document analysis. Both have free tiers, so this workflow costs nothing."
+      },
+      {
+        "q": "Which has better privacy?",
+        "a": "Claude has a stronger privacy-first reputation. Anthropic does not use conversations to train models on Pro plans, and its safety standards are more transparent. ChatGPT offers similar protections on Team and Enterprise tiers."
+      }
+    ],
+    "seoTitle": "ChatGPT vs Claude: Which AI Assistant Wins in 2025? | AI Fit Map",
+    "seoDescription": "Compare ChatGPT and Claude across writing, coding, pricing, and features. See which AI assistant fits your workflow best."
+  },
+  {
+    "id": "compare-2",
+    "slug": "midjourney-vs-canva",
+    "toolA": "midjourney",
+    "toolB": "canva",
+    "summary": "Midjourney and Canva both use AI to create visuals, but they serve fundamentally different creative workflows. Midjourney is a dedicated AI image generator focused on artistic quality and detail, while Canva is an all-in-one design platform with built-in AI tools for speed and accessibility.",
+    "winnerByUseCase": [
+      {
+        "useCase": "High-quality artistic images and concept art",
+        "winner": "midjourney",
+        "note": "Midjourney produces the most visually stunning and detailed AI-generated images available today."
+      },
+      {
+        "useCase": "Social media graphics and marketing materials",
+        "winner": "canva",
+        "note": "Canva's templates, brand kits, and integrated editor make it faster for business and social content."
+      },
+      {
+        "useCase": "Non-designers needing quick polished visuals",
+        "winner": "canva",
+        "note": "Canva requires no learning curve and offers thousands of templates for instant professional results."
+      },
+      {
+        "useCase": "Photorealistic portraits and fantasy art",
+        "winner": "midjourney",
+        "note": "Midjourney v6 excels at photorealism, lighting, and artistic styles that Canva's AI cannot match."
+      },
+      {
+        "useCase": "Team collaboration on design projects",
+        "winner": "canva",
+        "note": "Canva's real-time collaboration, comments, and shared brand kits are built for team workflows."
+      }
+    ],
+    "tableData": [
+      {
+        "feature": "Image quality",
+        "toolAValue": "Best-in-class artistry",
+        "toolBValue": "Good for quick business use"
+      },
+      {
+        "feature": "Free tier",
+        "toolAValue": "None (starts at $10/month)",
+        "toolBValue": "Generous free tier with templates"
+      },
+      {
+        "feature": "Ease of use",
+        "toolAValue": "Steep (Discord interface)",
+        "toolBValue": "Extremely easy (drag-and-drop)"
+      },
+      {
+        "feature": "Template library",
+        "toolAValue": "None",
+        "toolBValue": "Thousands of templates"
+      },
+      {
+        "feature": "Video editing",
+        "toolAValue": "Not available",
+        "toolBValue": "Basic video tools included"
+      },
+      {
+        "feature": "Brand kit and team features",
+        "toolAValue": "None",
+        "toolBValue": "Built-in brand management"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I use Midjourney images in Canva designs?",
+        "a": "Yes. Many creators generate images in Midjourney, download them, and then import into Canva to add text, logos, and layout using Canva's templates and design tools."
+      },
+      {
+        "q": "Which is better for small business owners?",
+        "a": "Canva is almost always the better choice for small businesses. It is cheaper to start, easier to learn, and designed for the types of graphics businesses need daily — social posts, flyers, presentations, and ads."
+      },
+      {
+        "q": "Do I need design skills for either tool?",
+        "a": "Neither requires traditional design skills, but Canva is more accessible for complete beginners. Midjourney requires learning prompt engineering and navigating Discord to get the best results."
+      }
+    ],
+    "seoTitle": "Midjourney vs Canva: AI Image Generation Compared | AI Fit Map",
+    "seoDescription": "Compare Midjourney and Canva for AI image creation. See which tool wins on quality, ease of use, pricing, and best use cases."
+  },
+  {
+    "id": "compare-3",
+    "slug": "grammarly-vs-jasper",
+    "toolA": "grammarly",
+    "toolB": "jasper",
+    "summary": "Grammarly and Jasper both improve your writing with AI, but they solve different problems. Grammarly is a real-time writing assistant that fixes grammar, tone, and clarity as you type. Jasper is a generative copywriting platform built for marketing teams that need to produce content at scale.",
+    "winnerByUseCase": [
+      {
+        "useCase": "Daily email and professional writing",
+        "winner": "grammarly",
+        "note": "Grammarly works everywhere you type and catches errors in real time, making it essential for daily communication."
+      },
+      {
+        "useCase": "Marketing copy and ad campaigns",
+        "winner": "jasper",
+        "note": "Jasper is trained on marketing frameworks and can generate full campaigns, ad variations, and landing pages."
+      },
+      {
+        "useCase": "Budget-conscious individuals",
+        "winner": "grammarly",
+        "note": "Grammarly's excellent free tier and affordable Premium plan make it accessible to everyone."
+      },
+      {
+        "useCase": "Brand voice consistency across a team",
+        "winner": "jasper",
+        "note": "Jasper's brand voice training and team workflows ensure all content sounds like your brand, not generic AI."
+      },
+      {
+        "useCase": "Students and non-native English speakers",
+        "winner": "grammarly",
+        "note": "Grammarly's explanations and tone suggestions help learners improve their English while they write."
+      }
+    ],
+    "tableData": [
+      {
+        "feature": "Primary function",
+        "toolAValue": "Real-time grammar and tone correction",
+        "toolBValue": "Generative marketing copywriting"
+      },
+      {
+        "feature": "Free tier",
+        "toolAValue": "Yes (grammar, spelling, tone)",
+        "toolBValue": "No (7-day trial only)"
+      },
+      {
+        "feature": "Starting price",
+        "toolAValue": "$12/month (Premium)",
+        "toolBValue": "$49/month (Creator)"
+      },
+      {
+        "feature": "Marketing templates",
+        "toolAValue": "None",
+        "toolBValue": "50+ trained frameworks"
+      },
+      {
+        "feature": "Works everywhere you type",
+        "toolAValue": "Yes (browser, desktop, mobile)",
+        "toolBValue": "Web and Chrome only"
+      },
+      {
+        "feature": "Team collaboration",
+        "toolAValue": "Business plan available",
+        "toolBValue": "Built for teams (Teams plan)"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can Grammarly and Jasper be used together?",
+        "a": "Yes. Many marketing teams draft copy in Jasper, then run it through Grammarly Premium to catch grammar issues, improve clarity, and adjust tone before publishing."
+      },
+      {
+        "q": "Which is better for blog writing?",
+        "a": "Jasper is better for high-volume blog production with SEO integration, while Grammarly is better for polishing individual posts. Casual bloggers often find ChatGPT or Claude plus Grammarly a more affordable combination."
+      },
+      {
+        "q": "Is Jasper worth the higher price?",
+        "a": "Jasper justifies its cost for marketing teams and agencies producing content daily. For individuals or small businesses with modest content needs, Grammarly plus a general AI chatbot is usually more cost-effective."
+      }
+    ],
+    "seoTitle": "Grammarly vs Jasper: AI Writing Tools Compared | AI Fit Map",
+    "seoDescription": "Compare Grammarly and Jasper for AI writing assistance. See which tool fits your budget, workflow, and content needs best."
+  }
+]

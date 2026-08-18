@@ -1,0 +1,37 @@
+[
+  {
+    "content": "[data] Create /data/ folder with categories.json, tools.json, guides.json, comparisons.json, site.json",
+    "id": "1",
+    "status": "completed"
+  },
+  {
+    "content": "[folders] Create directory structure: /tools/{cat}/, /tool/{slug}/, /guides/{slug}/, /compare/{slug}/, /disclosure/, /methodology/",
+    "id": "2",
+    "status": "completed"
+  },
+  {
+    "content": "[js] Create data-loader.js, seo.js, pages/*.js page renderers",
+    "id": "3",
+    "status": "completed"
+  },
+  {
+    "content": "[js] Update main.js, quiz-config.js for routing + slug mapping",
+    "id": "4",
+    "status": "in_progress"
+  },
+  {
+    "content": "[html] Update index.html nav/footer, page shells for all routes",
+    "id": "5",
+    "status": "pending"
+  },
+  {
+    "content": "[html/css] Create page shells, placeholder CSS files, ad slots",
+    "id": "6",
+    "status": "pending"
+  },
+  {
+    "content": "[git] Commit and push architecture phase",
+    "id": "7",
+    "status": "pending"
+  }
+]

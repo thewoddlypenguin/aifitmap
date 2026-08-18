@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "content": "[data-layer] Create JSON data files (categories, tools, guides, comparisons, site)",
+    "status": "completed"
+  },
+  {
+    "id": "2",
+    "content": "[routing] Create data-loader.js, seo.js, routing-helpers.js, page renderers",
+    "status": "completed"
+  },
+  {
+    "id": "3",
+    "content": "[quiz] Update quiz-config.js + quiz-engine.js for slug-based routing",
+    "status": "completed"
+  },
+  {
+    "id": "4",
+    "content": "[integration] Wire main.js routing, analytics page context, index.html nav/footer/scripts",
+    "status": "completed"
+  },
+  {
+    "id": "5",
+    "content": "[shells] Generate all page shells + CSS + ad slots + sitemap + robots.txt",
+    "status": "completed"
+  },
+  {
+    "id": "6",
+    "content": "[validation] Fix categories.json featuredToolSlugs → all checks pass",
+    "status": "completed"
+  },
+  {
+    "id": "7",
+    "content": "[git] Commit and push content expansion foundation to origin/master",
+    "status": "in_progress"
+  }
+]

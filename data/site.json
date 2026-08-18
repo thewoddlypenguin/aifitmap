@@ -1,0 +1,56 @@
+{
+  "siteName": "AI Fit Map",
+  "tagline": "Find the Right AI Tool for You",
+  "url": "https://aifitmap.com",
+  "defaultSeoTitle": "AI Fit Map – Find the Right AI Tool for You",
+  "defaultSeoDescription": "AI Fit Map helps everyday people find the right AI tools — matched to how they actually think, work, and live. No tech jargon. Just the right fit.",
+  "defaultOgImage": "/images/og-default.png",
+  "socialLinks": {
+    "twitter": "https://twitter.com/aifitmap",
+    "youtube": "https://youtube.com/@aifitmap",
+    "facebook": "https://facebook.com/aifitmap"
+  },
+  "adSlots": {
+    "ad_top_banner": "ad-top-banner",
+    "ad_inlist_1": "ad-inlist-1",
+    "ad_sidebar_sticky": "ad-sidebar-sticky",
+    "ad_incontent_mid": "ad-incontent-mid",
+    "ad_bottom_cta": "ad-bottom-cta",
+    "sponsored_partner_card": "sponsored-partner-card"
+  },
+  "navLinks": [
+    { "label": "Home", "href": "/" },
+    { "label": "AI Tools", "href": "/tools/" },
+    { "label": "Guides", "href": "/guides/" },
+    { "label": "About", "href": "/about/" },
+    { "label": "Contact", "href": "/contact/" }
+  ],
+  "footerLinks": {
+    "columns": [
+      {
+        "heading": "Discover",
+        "links": [
+          { "label": "AI Tools", "href": "/tools/" },
+          { "label": "Categories", "href": "/categories/" },
+          { "label": "Guides", "href": "/guides/" }
+        ]
+      },
+      {
+        "heading": "Company",
+        "links": [
+          { "label": "About", "href": "/about/" },
+          { "label": "Contact", "href": "/contact/" },
+          { "label": "Methodology", "href": "/about/methodology/" }
+        ]
+      },
+      {
+        "heading": "Legal",
+        "links": [
+          { "label": "Privacy Policy", "href": "/privacy/" },
+          { "label": "Terms of Service", "href": "/terms/" },
+          { "label": "Disclosure", "href": "/about/disclosure/" }
+        ]
+      }
+    ]
+  }
+}

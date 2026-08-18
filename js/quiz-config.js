@@ -302,6 +302,7 @@ var QUIZ_CONFIG = {
 var TOOL_CATALOG = [
   {
     id: 'chatgpt',
+    slug: 'chatgpt',
     name: 'ChatGPT',
     provider: 'OpenAI',
     tagline: 'The all-purpose AI assistant',
@@ -315,7 +316,7 @@ var TOOL_CATALOG = [
     hasFree: true,
     priceFrom: 'Free / $20/month',
     ctaLabel: 'Try ChatGPT Free',
-    ctaUrl: '#',
+    ctaUrl: 'https://chat.openai.com',
     baseScore: 78,
     sponsored: false,
     matchReasonsByCategory: {
@@ -338,6 +339,7 @@ var TOOL_CATALOG = [
 
   {
     id: 'claude',
+    slug: 'claude',
     name: 'Claude',
     provider: 'Anthropic',
     tagline: 'Thoughtful, nuanced AI for careful thinkers',
@@ -350,7 +352,7 @@ var TOOL_CATALOG = [
     hasFree: true,
     priceFrom: 'Free / $20/month',
     ctaLabel: 'Try Claude Free',
-    ctaUrl: '#',
+    ctaUrl: 'https://claude.ai',
     baseScore: 74,
     sponsored: false,
     matchReasonsByCategory: {
@@ -373,6 +375,7 @@ var TOOL_CATALOG = [
 
   {
     id: 'gemini',
+    slug: 'gemini',
     name: 'Gemini',
     provider: 'Google',
     tagline: 'Google\'s AI — inside the apps you already use',
@@ -385,7 +388,7 @@ var TOOL_CATALOG = [
     hasFree: true,
     priceFrom: 'Free / included with Google One',
     ctaLabel: 'Try Gemini Free',
-    ctaUrl: '#',
+    ctaUrl: 'https://gemini.google.com',
     baseScore: 69,
     sponsored: false,
     matchReasonsByCategory: {
@@ -407,6 +410,7 @@ var TOOL_CATALOG = [
 
   {
     id: 'notion_ai',
+    slug: 'notion-ai',
     name: 'Notion AI',
     provider: 'Notion',
     tagline: 'Plan, write, and organize — all in one place',
@@ -419,7 +423,7 @@ var TOOL_CATALOG = [
     hasFree: false,
     priceFrom: 'From $10/month',
     ctaLabel: 'Try Notion AI',
-    ctaUrl: '#',
+    ctaUrl: 'https://www.notion.so/product/ai',
     baseScore: 63,
     sponsored: true,           // ← This is the sponsored/partner placement
     sponsoredLabel: 'Featured Partner',
@@ -442,6 +446,7 @@ var TOOL_CATALOG = [
 
   {
     id: 'perplexity',
+    slug: 'perplexity',
     name: 'Perplexity',
     provider: 'Perplexity AI',
     tagline: 'Real answers with real sources — instantly',
@@ -454,7 +459,7 @@ var TOOL_CATALOG = [
     hasFree: true,
     priceFrom: 'Free / $20/month',
     ctaLabel: 'Try Perplexity Free',
-    ctaUrl: '#',
+    ctaUrl: 'https://www.perplexity.ai',
     baseScore: 66,
     sponsored: false,
     matchReasonsByCategory: {
@@ -476,6 +481,7 @@ var TOOL_CATALOG = [
 
   {
     id: 'grammarly',
+    slug: 'grammarly',
     name: 'Grammarly',
     provider: 'Grammarly Inc.',
     tagline: 'Write with confidence — everywhere you type',
@@ -488,7 +494,7 @@ var TOOL_CATALOG = [
     hasFree: true,
     priceFrom: 'Free / $12/month',
     ctaLabel: 'Try Grammarly Free',
-    ctaUrl: '#',
+    ctaUrl: 'https://www.grammarly.com',
     baseScore: 71,
     sponsored: false,
     matchReasonsByCategory: {
@@ -510,6 +516,7 @@ var TOOL_CATALOG = [
 
   {
     id: 'otter',
+    slug: 'otter-ai',
     name: 'Otter.ai',
     provider: 'Otter.ai',
     tagline: 'Never miss what was said in a meeting again',
@@ -521,7 +528,7 @@ var TOOL_CATALOG = [
     hasFree: true,
     priceFrom: 'Free / $10/month',
     ctaLabel: 'Try Otter.ai Free',
-    ctaUrl: '#',
+    ctaUrl: 'https://otter.ai',
     baseScore: 58,
     sponsored: false,
     matchReasonsByCategory: {

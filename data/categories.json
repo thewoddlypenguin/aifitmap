@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Writing & Editing",
+    "slug": "writing-editing",
+    "shortDescription": "AI tools that help you write clearer, edit faster, and communicate with confidence.",
+    "icon": "✍️",
+    "seoTitle": "Best AI Writing & Editing Tools | AI Fit Map",
+    "seoDescription": "Discover AI tools that help you write better emails, essays, reports, and creative content — matched to your skill level and needs.",
+    "featuredToolSlugs": ["grammarly", "claude", "chatgpt"]
+  },
+  {
+    "id": 2,
+    "name": "Image & Design",
+    "slug": "image-design",
+    "shortDescription": "Create stunning visuals, graphics, and artwork without needing design expertise.",
+    "icon": "🎨",
+    "seoTitle": "Best AI Image & Design Tools | AI Fit Map",
+    "seoDescription": "Find AI-powered design and image generation tools that turn your ideas into professional visuals — no design skills required.",
+    "featuredToolSlugs": ["chatgpt", "gemini"]
+  },
+  {
+    "id": 3,
+    "name": "Productivity & Work",
+    "slug": "productivity-work",
+    "shortDescription": "Streamline your workflow, automate repetitive tasks, and get more done in less time.",
+    "icon": "💼",
+    "seoTitle": "Best AI Productivity & Work Tools | AI Fit Map",
+    "seoDescription": "Boost your work output with AI tools that automate tasks, organize information, and help you focus on what matters most.",
+    "featuredToolSlugs": ["notion-ai", "chatgpt", "otter-ai"]
+  },
+  {
+    "id": 4,
+    "name": "Learning & Research",
+    "slug": "learning-research",
+    "shortDescription": "Learn faster, understand deeper, and find reliable answers to complex questions.",
+    "icon": "📚",
+    "seoTitle": "Best AI Learning & Research Tools | AI Fit Map",
+    "seoDescription": "Explore AI tools that help students, researchers, and curious minds learn faster and find credible information with ease.",
+    "featuredToolSlugs": ["perplexity", "claude", "gemini"]
+  },
+  {
+    "id": 5,
+    "name": "Audio & Voice",
+    "slug": "audio-voice",
+    "shortDescription": "Transcribe meetings, generate voiceovers, and turn speech into actionable text.",
+    "icon": "🎙️",
+    "seoTitle": "Best AI Audio & Voice Tools | AI Fit Map",
+    "seoDescription": "Find AI tools for transcription, voice generation, and audio processing — perfect for meetings, podcasts, and accessibility.",
+    "featuredToolSlugs": ["otter-ai", "chatgpt"]
+  },
+  {
+    "id": 6,
+    "name": "Planning & Scheduling",
+    "slug": "planning-scheduling",
+    "shortDescription": "Organize your time, manage projects, and stay on top of deadlines with AI assistance.",
+    "icon": "🗓️",
+    "seoTitle": "Best AI Planning & Scheduling Tools | AI Fit Map",
+    "seoDescription": "Discover AI tools that help you plan projects, schedule tasks, and organize your life with less stress and more clarity.",
+    "featuredToolSlugs": ["notion-ai", "chatgpt"]
+  },
+  {
+    "id": 7,
+    "name": "Chatbots & Assistants",
+    "slug": "chatbots-assistants",
+    "shortDescription": "General-purpose AI companions for everyday questions, brainstorming, and casual help.",
+    "icon": "🤖",
+    "seoTitle": "Best AI Chatbots & Assistants | AI Fit Map",
+    "seoDescription": "Compare the top AI chatbots and virtual assistants — find the one that fits how you ask questions and get things done.",
+    "featuredToolSlugs": ["chatgpt", "claude", "gemini"]
+  },
+  {
+    "id": 8,
+    "name": "Video & Media",
+    "slug": "video-media",
+    "shortDescription": "Generate, edit, and enhance video content with AI-powered creation tools.",
+    "icon": "🎬",
+    "seoTitle": "Best AI Video & Media Tools | AI Fit Map",
+    "seoDescription": "Find AI video editing and media creation tools that help you produce professional content without expensive software or skills.",
+    "featuredToolSlugs": ["chatgpt", "gemini"]
+  }
+]

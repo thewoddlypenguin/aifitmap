@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Content pages are rendered client-side from JSON data.
+# Allow crawlers to index them normally.
+
+Sitemap: https://aifitmap.com/sitemap.xml

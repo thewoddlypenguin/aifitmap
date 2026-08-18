@@ -34,6 +34,48 @@ var Analytics = (function () {
     return _utmCache;
   }
 
+  /* ── Page Context (derived from URL path) ────────────── */
+  var _pageContext = null;
+
+  /**
+   * Derive { pageType, pageSlug, categorySlug, toolSlug } from the
+   * current pathname. Slots in:
+   *   /tools/{cat}/          → category
+   *   /tool/{slug}/          → tool
+   *   /guides/{slug}/        → guide
+   *   /compare/{slug}/       → comparison
+   *   everything else        → 'page' (home, about, disclosure…)
+   */
+  function _getPageContext() {
+    if (_pageContext) return _pageContext;
+    var path = window.location.pathname.replace(/\/+$/, '');
+    var parts = path.split('/').filter(Boolean);
+    var ctx = { pageType: 'page', pageSlug: '', categorySlug: '', toolSlug: '' };
+
+    if (parts[0] === 'tools' && parts[1]) {
+      ctx.pageType = 'category';
+      ctx.categorySlug = parts[1];
+      ctx.pageSlug = parts[1];
+    } else if (parts[0] === 'tool' && parts[1]) {
+      ctx.pageType = 'tool';
+      ctx.toolSlug = parts[1];
+      ctx.pageSlug = parts[1];
+    } else if (parts[0] === 'guides' && parts[1]) {
+      ctx.pageType = 'guide';
+      ctx.pageSlug = parts[1];
+    } else if (parts[0] === 'compare' && parts[1]) {
+      ctx.pageType = 'comparison';
+      ctx.pageSlug = parts[1];
+    } else if (parts[0] === 'about' || parts[0] === 'contact' ||
+               parts[0] === 'disclosure' || parts[0] === 'methodology' ||
+               parts[0] === 'privacy' || parts[0] === 'terms') {
+      ctx.pageType = parts[0];
+      ctx.pageSlug = parts[0];
+    }
+    _pageContext = ctx;
+    return ctx;
+  }
+
   /* ── Core Track ──────────────────────────────────────── */
   /**
    * Track a user event.
@@ -47,15 +89,32 @@ var Analytics = (function () {
    *   tool_cta_clicked      { tool_id, tool_name, position, timestamp }
    *   sponsored_cta_clicked { tool_id, tool_name, sponsor_id, timestamp }
    *   retake_quiz_clicked   { timestamp, device_type }
+   *   quiz_result_click     { tool_id, tool_name, tool_slug, position, timestamp }
+   *
+   * Content events (Phase 3 — content expansion):
+   *   category_view     { categorySlug, ...ctx }
+   *   tool_view         { toolSlug, ...ctx }
+   *   guide_view        { guideSlug, ...ctx }
+   *   comparison_view   { comparisonSlug, ...ctx }
+   *   tool_click_outbound { toolSlug, targetUrl }
+   *   sponsored_click   { toolSlug, sponsorId }
+   *   ad_slot_view      { slotId }
+   *   ad_slot_click     { slotId }
+   *
+   * Every payload is auto-enriched with:
+   *   pageType, pageSlug, categorySlug, toolSlug,
+   *   device_type, timestamp, utm_* fields.
    *
    * @param {string} eventName
    * @param {object} payload
    */
   function track(eventName, payload) {
+    var ctx = _getPageContext();
     var enriched = Object.assign(
       {},
       { event: eventName, timestamp: new Date().toISOString() },
       { device_type: /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'mobile' : 'desktop' },
+      ctx,
       _getUTMs(),
       payload
     );

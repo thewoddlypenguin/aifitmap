@@ -18,7 +18,47 @@
     if (typeof QuizEngine !== 'undefined') {
       QuizEngine.init();
     }
+
+    // Route content pages (tool/category/guide/compare) to their renderers
+    initPageRouting();
+
+    // Wire any ad-slot placeholders already in the DOM
+    if (typeof Routing !== 'undefined') {
+      Routing.wireAdSlots(document);
+    }
   });
+
+  /* ── Content page routing ── */
+  function initPageRouting() {
+    var path = window.location.pathname.replace(/\/+$/, '');
+    var parts = path.split('/').filter(Boolean);
+
+    // Static utility pages set their own title in HTML — nothing to route.
+    if (!parts.length) return; // homepage
+
+    var renderers = {
+      tools:    function (slug) {
+        if (typeof CategoryPage === 'undefined') return;
+        // /tools/ (index) → list all categories
+        if (!slug) { CategoryPage.initIndex(); return; }
+        CategoryPage.init(slug);
+      },
+      tool:     function (slug) {
+        if (typeof ToolPage !== 'undefined') ToolPage.init(slug);
+      },
+      guides:   function (slug) {
+        if (typeof GuidePage === 'undefined') return;
+        if (!slug) { GuidePage.initIndex(); return; }
+        GuidePage.init(slug);
+      },
+      compare:  function (slug) {
+        if (typeof ComparePage !== 'undefined') ComparePage.init(slug);
+      },
+    };
+
+    var route = renderers[parts[0]];
+    if (route) route(parts[1]);
+  }
 
   /* ── Sponsor Bar Dismiss ── */
   function initSponsorBar() {

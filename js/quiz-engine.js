@@ -681,27 +681,45 @@ var QuizEngine = (function () {
     ].join('');
 
     _transitionBody(html, function () {
-      /* Wire tool CTAs */
+      /* Wire tool CTAs → real tool pages */
       body.querySelectorAll('.qm-tool-cta').forEach(function (btn) {
         btn.addEventListener('click', function () {
+          var tool = _findToolById(btn.dataset.toolId);
+          Analytics.track('quiz_result_click', {
+            tool_id:   btn.dataset.toolId,
+            tool_name: btn.dataset.toolName,
+            tool_slug: tool ? tool.slug : btn.dataset.toolId,
+            position:  parseInt(btn.dataset.position, 10),
+          });
           Analytics.track('tool_cta_clicked', {
             tool_id:   btn.dataset.toolId,
             tool_name: btn.dataset.toolName,
             position:  parseInt(btn.dataset.position, 10),
           });
-          // Placeholder: open tool URL in new tab
-          // window.open(tool.ctaUrl, '_blank');
+          if (tool && tool.slug) {
+            window.location.href = '/tool/' + tool.slug + '/';
+          }
         });
       });
 
-      /* Wire sponsored CTA */
+      /* Wire sponsored CTA → tool page */
       body.querySelectorAll('.qm-sponsored-cta').forEach(function (btn) {
         btn.addEventListener('click', function () {
+          var tool = _findToolById(btn.dataset.toolId);
           Analytics.track('sponsored_cta_clicked', {
             tool_id:    btn.dataset.toolId,
             tool_name:  btn.dataset.toolName,
             sponsor_id: btn.dataset.sponsorId,
           });
+          Analytics.track('quiz_result_click', {
+            tool_id:   btn.dataset.toolId,
+            tool_name: btn.dataset.toolName,
+            tool_slug: tool ? tool.slug : btn.dataset.toolId,
+            position:  4,
+          });
+          if (tool && tool.slug) {
+            window.location.href = '/tool/' + tool.slug + '/';
+          }
         });
       });
 
@@ -789,6 +807,13 @@ var QuizEngine = (function () {
       .replace(/>/g,  '&gt;')
       .replace(/"/g,  '&quot;')
       .replace(/'/g,  '&#39;');
+  }
+
+  /* Look up a tool from the catalog (TOOL_CATALOG) by its id */
+  function _findToolById(id) {
+    if (typeof TOOL_CATALOG === 'undefined') return null;
+    var matches = TOOL_CATALOG.filter(function (t) { return t.id === id; });
+    return matches.length ? matches[0] : null;
   }
 
   /* ─────────────────────────────────────────────────────────
