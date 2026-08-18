@@ -1,0 +1,32 @@
+[
+  {
+    "content": "[phase2-1] Write js/analytics.js — event tracking utility",
+    "id": "1",
+    "status": "completed"
+  },
+  {
+    "content": "[phase2-2] Write js/quiz-config.js — question config + tool catalog",
+    "id": "2",
+    "status": "completed"
+  },
+  {
+    "content": "[phase2-3] Write css/quiz.css — modal, steps, results styles",
+    "id": "3",
+    "status": "completed"
+  },
+  {
+    "content": "[phase2-4] Write js/quiz-engine.js — full quiz shell (modal, state, scoring, results)",
+    "id": "4",
+    "status": "completed"
+  },
+  {
+    "content": "[phase2-5] Update index.html + css/style.css + js/main.js",
+    "id": "5",
+    "status": "completed"
+  },
+  {
+    "content": "[phase2-6] Write README.md developer guide",
+    "id": "6",
+    "status": "completed"
+  }
+]

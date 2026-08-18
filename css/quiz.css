@@ -1,0 +1,763 @@
+/* ============================================================
+   AI FIT MAP — Quiz Modal & Results Stylesheet (Phase 2)
+   Scoped to quiz modal, step UI, and results screen only.
+   ============================================================ */
+
+/* ── Quiz Modal Overlay ─────────────────────────────────── */
+.quiz-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.quiz-modal.open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.quiz-modal[aria-hidden='true'] {
+  pointer-events: none;
+}
+
+.quiz-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 31, 26, 0.58);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+/* ── Modal Container ────────────────────────────────────── */
+.quiz-modal__container {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 24px 80px rgba(26,31,26,0.22), 0 8px 24px rgba(26,31,26,0.12);
+  width: min(620px, calc(100vw - 24px));
+  max-height: min(92vh, 780px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(28px) scale(0.96);
+  transition: transform 0.32s cubic-bezier(0.34, 1.4, 0.64, 1);
+  border: 1px solid var(--border-soft);
+}
+
+.quiz-modal.open .quiz-modal__container {
+  transform: translateY(0) scale(1);
+}
+
+/* ── Modal Header ───────────────────────────────────────── */
+.quiz-modal__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px 14px;
+  border-bottom: 1px solid var(--border-soft);
+  flex-shrink: 0;
+  background: var(--bg-section);
+}
+
+.quiz-modal__brand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.quiz-modal__brand-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.quiz-modal__brand-dot::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.32);
+  border-top-color: rgba(255,255,255,0.8);
+  transform: rotate(-30deg);
+}
+
+.quiz-modal__brand-dot::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.quiz-modal__brand span {
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.quiz-modal__progress-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.quiz-modal__progress-bar {
+  height: 5px;
+  background: var(--bg-muted);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.quiz-modal__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal), var(--blue));
+  border-radius: 50px;
+  transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 0%;
+}
+
+.quiz-modal__step-label {
+  font-family: var(--font-main);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+
+.quiz-modal__close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition: background 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.quiz-modal__close:hover {
+  background: var(--bg-muted);
+  color: var(--ink);
+}
+
+/* ── Modal Body ─────────────────────────────────────────── */
+.quiz-modal__body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 28px 28px 12px;
+  /* smooth scroll on iOS */
+  -webkit-overflow-scrolling: touch;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+/* Thin custom scrollbar */
+.quiz-modal__body::-webkit-scrollbar { width: 4px; }
+.quiz-modal__body::-webkit-scrollbar-track { background: transparent; }
+.quiz-modal__body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* ── Modal Footer ───────────────────────────────────────── */
+.quiz-modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px 18px;
+  border-top: 1px solid var(--border-soft);
+  background: var(--bg-section);
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.quiz-modal__back-btn {
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 2px;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+
+.quiz-modal__back-btn:hover { color: var(--ink); }
+
+.quiz-modal__footer-trust {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--ink-faint);
+  text-align: center;
+  flex: 1;
+}
+
+.quiz-modal__next-btn {
+  flex-shrink: 0;
+}
+
+/* ── Category Breadcrumb ────────────────────────────────── */
+.qm-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--sage-pale);
+  border: 1px solid #C4DCC9;
+  border-radius: 50px;
+  padding: 5px 12px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--sage);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.qm-breadcrumb__icon { font-size: 0.9rem; }
+
+.qm-breadcrumb__sep {
+  color: var(--sage-light);
+  font-size: 0.85rem;
+}
+
+/* ── Step Content ───────────────────────────────────────── */
+.qm-step__question {
+  font-family: var(--font-main);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.qm-step__hint {
+  font-family: var(--font-body);
+  font-size: 0.87rem;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.qm-step__multi-hint {
+  font-family: var(--font-main);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: var(--blue-pale);
+  border-radius: 50px;
+  display: inline-block;
+  padding: 3px 10px;
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Option Grid ────────────────────────────────────────── */
+.qm-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.qm-options--multi {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Single column on very small screens */
+@media (max-width: 400px) {
+  .qm-options { grid-template-columns: 1fr; }
+}
+
+/* ── Option Button ──────────────────────────────────────── */
+.qm-option {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 13px 13px 13px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  background: var(--bg-section);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease,
+              box-shadow 0.15s ease, transform 0.15s ease;
+  text-align: left;
+  width: 100%;
+  position: relative;
+}
+
+.qm-option:hover {
+  border-color: #A8C4E0;
+  background: var(--chip-selected);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(61,114,200,0.10);
+}
+
+.qm-option.selected {
+  border-color: var(--blue);
+  background: var(--chip-selected);
+  box-shadow: 0 0 0 3px rgba(61,114,200,0.12);
+}
+
+.qm-option__icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.15s ease;
+}
+
+.qm-option:hover .qm-option__icon { transform: scale(1.1); }
+
+.qm-option__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.qm-option__label {
+  display: block;
+  font-family: var(--font-main);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.qm-option__sub {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+.qm-option__check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.15s ease;
+}
+
+.qm-option__check.hidden {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+/* ── Validation Message ─────────────────────────────────── */
+.qm-validation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #FEF3E2;
+  border: 1px solid #F0C878;
+  border-radius: var(--radius-sm);
+  padding: 9px 13px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: #8A6320;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.qm-validation::before {
+  content: '⚠️';
+  font-size: 0.85rem;
+}
+
+/* ── Hero card validation ───────────────────────────────── */
+.hero-validation {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  background: #FEF3E2;
+  border: 1px solid #F0C878;
+  border-radius: var(--radius-sm);
+  padding: 7px 11px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: #8A6320;
+  margin-top: 7px;
+  font-weight: 500;
+}
+
+.hero-validation::before { content: '⚠️'; font-size: 0.8rem; }
+
+/* ── Results Screen ─────────────────────────────────────── */
+.qm-results {
+  padding-bottom: 8px;
+}
+
+.qm-results__header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.qm-results__emoji {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.qm-results__title {
+  font-family: var(--font-main);
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--ink);
+  margin-bottom: 7px;
+  letter-spacing: -0.01em;
+}
+
+.qm-results__sub {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+
+/* ── Result Cards Grid ──────────────────────────────────── */
+.qm-results__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.qm-result-card {
+  background: var(--bg-section);
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--border);
+  padding: 18px 18px 14px;
+  position: relative;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.qm-result-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Top pick card gets a highlighted border */
+.qm-result-card:first-child {
+  border-color: var(--blue);
+  background: linear-gradient(135deg, #F0F5FF 0%, var(--bg-section) 100%);
+  box-shadow: 0 0 0 3px rgba(61,114,200,0.08);
+}
+
+.qm-result-card__top-badge {
+  position: absolute;
+  top: -11px;
+  left: 16px;
+  background: var(--blue);
+  color: #fff;
+  font-family: var(--font-main);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+
+.qm-result-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.qm-result-card__name {
+  font-family: var(--font-main);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.qm-result-card__provider {
+  font-family: var(--font-body);
+  font-size: 0.73rem;
+  color: var(--ink-soft);
+  margin-bottom: 2px;
+}
+
+.qm-result-card__tagline {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--ink-mid);
+  line-height: 1.3;
+}
+
+/* ── Match Score Badge ──────────────────────────────────── */
+.qm-match-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  justify-content: center;
+  border: 2.5px solid;
+}
+
+.qm-match-score--best  { border-color: var(--blue);  background: var(--blue-pale); }
+.qm-match-score--great { border-color: var(--sage);  background: var(--sage-pale); }
+.qm-match-score--good  { border-color: var(--teal);  background: var(--teal-pale); }
+
+.qm-match-score__num {
+  font-family: var(--font-main);
+  font-size: 0.88rem;
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.qm-match-score__label {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  color: var(--ink-soft);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Tool Description ───────────────────────────────────── */
+.qm-result-card__desc {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  color: var(--ink-mid);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+/* ── Why This Fits You ──────────────────────────────────── */
+.qm-result-card__reasons {
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-soft);
+  padding: 10px 12px;
+  margin-bottom: 14px;
+}
+
+.qm-result-card__reasons-label {
+  font-family: var(--font-main);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--sage);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 7px;
+}
+
+.qm-result-card__reasons-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.qm-result-card__reasons-list li {
+  font-family: var(--font-body);
+  font-size: 0.81rem;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  padding-left: 14px;
+  position: relative;
+}
+
+.qm-result-card__reasons-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--sage);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* ── Card Footer ────────────────────────────────────────── */
+.qm-result-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.qm-result-card__price {
+  font-family: var(--font-main);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+/* ── Sponsored Result Card ──────────────────────────────── */
+.qm-results__sponsored-section {
+  margin-top: 14px;
+  margin-bottom: 16px;
+}
+
+.qm-results__sponsored-label {
+  font-family: var(--font-main);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+
+.qm-result-card--sponsored {
+  background: var(--amber-pale);
+  border-color: #E8D4A0;
+}
+
+.qm-result-card--sponsored:first-child {
+  background: var(--amber-pale);
+  border-color: #E8D4A0;
+  box-shadow: none;
+}
+
+.qm-sponsored-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--amber-pale);
+  border: 1px solid #E8D4A0;
+  border-radius: 50px;
+  padding: 3px 9px;
+  font-family: var(--font-main);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--amber);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  position: absolute;
+  top: -11px;
+  left: 16px;
+}
+
+/* ── Results Action Row ─────────────────────────────────── */
+.qm-results__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 6px 0 4px;
+  border-top: 1px solid var(--border-soft);
+  flex-wrap: wrap;
+}
+
+/* ── Animations ─────────────────────────────────────────── */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  15%       { transform: translateX(-6px); }
+  30%       { transform: translateX(6px); }
+  45%       { transform: translateX(-4px); }
+  60%       { transform: translateX(4px); }
+  75%       { transform: translateX(-2px); }
+  90%       { transform: translateX(2px); }
+}
+
+@keyframes shake-subtle {
+  0%, 100% { transform: scale(1); }
+  40%       { transform: scale(0.97); }
+}
+
+.shake         { animation: shake 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97); }
+.shake-subtle  { animation: shake-subtle 0.35s ease; }
+
+/* ── Disabled hero CTA ──────────────────────────────────── */
+.btn-disabled {
+  opacity: 0.52;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Mobile Overrides ───────────────────────────────────── */
+@media (max-width: 540px) {
+  .quiz-modal__container {
+    width: 100vw;
+    max-height: 100dvh;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    align-self: flex-end;
+    transform: translateY(100%);
+    transition: transform 0.32s cubic-bezier(0.34, 1.2, 0.64, 1);
+  }
+
+  .quiz-modal {
+    align-items: flex-end;
+  }
+
+  .quiz-modal.open .quiz-modal__container {
+    transform: translateY(0);
+  }
+
+  .quiz-modal__body {
+    padding: 20px 18px 8px;
+  }
+
+  .quiz-modal__header {
+    padding: 16px 18px 12px;
+  }
+
+  .quiz-modal__footer {
+    padding: 12px 18px 20px;
+  }
+
+  .qm-options {
+    gap: 8px;
+  }
+
+  .qm-option {
+    padding: 11px 10px;
+  }
+
+  .qm-step__question {
+    font-size: 1.1rem;
+  }
+
+  .qm-results__grid {
+    gap: 10px;
+  }
+}
