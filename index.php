@@ -1,0 +1,448 @@
+<?php
+$pageTitle       = 'AI Fit Map – Find the Right AI Tool for You';
+$metaDescription = 'AI Fit Map helps everyday people find the right AI tools — matched to how they actually think, work, and live. No tech jargon. Just the right fit.';
+$canonical       = 'https://aifitmap.com/';
+$pageType        = 'app';
+$extraCss        = ['/css/quiz.css'];
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/head.php'; ?>
+</head>
+<body>
+
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'; ?>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════════
+         HERO SECTION
+    ══════════════════════════════════════════════════ -->
+    <section class="hero" id="hero">
+      <div class="hero__layout">
+
+        <!-- LEFT COLUMN: headline + quiz card -->
+        <div class="hero__main">
+          <h1 class="hero__headline">Find your best-fit AI tool in minutes.</h1>
+          <p class="hero__sub">Our easy guided quiz quickly matches you with the best AI tools for your specific needs.</p>
+
+          <!-- Quiz Card -->
+          <div id="quiz">
+            <div class="quiz-card" role="form" aria-label="AI tool finder quiz">
+
+              <p class="quiz-card__step-line">
+                <strong>Step 1:</strong> What do you want help with today?
+              </p>
+
+              <!-- Row 1: 4 chips -->
+              <div class="quiz-card__chips" role="radiogroup" aria-label="Choose a category">
+                <button class="quiz-option-chip" data-value="everyday" aria-pressed="false" tabindex="0" role="radio">
+                  <div class="quiz-option-chip__icon" aria-hidden="true">🏠</div>
+                  <span class="quiz-option-chip__label">Everyday Help</span>
+                </button>
+                <button class="quiz-option-chip" data-value="writing" aria-pressed="false" tabindex="0" role="radio">
+                  <div class="quiz-option-chip__icon" aria-hidden="true">✍️</div>
+                  <span class="quiz-option-chip__label">Writing</span>
+                </button>
+                <button class="quiz-option-chip" data-value="planning" aria-pressed="false" tabindex="0" role="radio">
+                  <div class="quiz-option-chip__icon" aria-hidden="true">🗓️</div>
+                  <span class="quiz-option-chip__label">Planning</span>
+                </button>
+                <button class="quiz-option-chip" data-value="work" aria-pressed="false" tabindex="0" role="radio">
+                  <div class="quiz-option-chip__icon" aria-hidden="true">💼</div>
+                  <span class="quiz-option-chip__label">Work Productivity</span>
+                </button>
+              </div>
+
+              <!-- Row 2: 2 chips -->
+              <div class="quiz-card__chips-row2" role="radiogroup" aria-label="More categories">
+                <button class="quiz-option-chip" data-value="learning" aria-pressed="false" tabindex="0" role="radio">
+                  <div class="quiz-option-chip__icon" aria-hidden="true">📚</div>
+                  <span class="quiz-option-chip__label">Learning</span>
+                </button>
+                <button class="quiz-option-chip" data-value="research" aria-pressed="false" tabindex="0" role="radio">
+                  <div class="quiz-option-chip__icon" aria-hidden="true">🔍</div>
+                  <span class="quiz-option-chip__label">Research</span>
+                </button>
+              </div>
+
+              <div class="quiz-card__cta">
+                <button
+                  id="hero-start-btn"
+                  class="btn btn-primary btn-lg btn-full btn-disabled"
+                  type="button"
+                  data-action="start-quiz"
+                  disabled
+                  aria-disabled="true"
+                >
+                  START YOUR AI MATCH
+                </button>
+                <div class="hero-validation" id="hero-validation">
+                  Please select a category above before continuing.
+                </div>
+                <p class="quiz-card__trust">Free · No sign-up required · Results in under 2 minutes</p>
+              </div>
+
+            </div>
+          </div>
+          <!-- end quiz card -->
+        </div>
+
+        <!-- RIGHT COLUMN: sidebar content / AdSense zone -->
+        <aside class="hero__sidebar" aria-label="Additional content">
+
+          <!-- Module 1: How It Works mini -->
+          <div class="sidebar-module">
+            <h3 class="sidebar-module__title">How It Works</h3>
+            <div class="sidebar-steps">
+              <div class="sidebar-step">
+                <div class="sidebar-step__num">1</div>
+                <div class="sidebar-step__card">
+                  <div class="sidebar-step__icon">🎯</div>
+                  <div>
+                    <div class="sidebar-step__label">Tell us your goal</div>
+                    <div class="sidebar-step__sub">Answer a few simple questions</div>
+                  </div>
+                </div>
+              </div>
+              <div class="sidebar-step">
+                <div class="sidebar-step__num">2</div>
+                <div class="sidebar-step__card">
+                  <div class="sidebar-step__icon">🤝</div>
+                  <div>
+                    <div class="sidebar-step__label">We match your style</div>
+                    <div class="sidebar-step__sub">Based on how you actually work</div>
+                  </div>
+                </div>
+              </div>
+              <div class="sidebar-step">
+                <div class="sidebar-step__num">3</div>
+                <div class="sidebar-step__card">
+                  <div class="sidebar-step__icon">✨</div>
+                  <div>
+                    <div class="sidebar-step__label">Get your top matches</div>
+                    <div class="sidebar-step__sub">Clear picks, plain English</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module 2: Results Preview -->
+          <div class="sidebar-module">
+            <h3 class="sidebar-module__title">Recommendation Results Preview</h3>
+            <div class="sidebar-results">
+              <div class="sidebar-result sidebar-result--best">
+                <div class="sidebar-result__badge">Best Match</div>
+                <div class="sidebar-result__name">ChatGPT</div>
+                <div class="sidebar-result__desc">All-purpose AI assistant for any task</div>
+                <div class="sidebar-result__stars">★★★★★</div>
+                <a href="#" class="sidebar-result__link">Learn More ›</a>
+              </div>
+              <div class="sidebar-result sidebar-result--runner">
+                <div class="sidebar-result__badge">Runner-Up</div>
+                <div class="sidebar-result__name">Claude</div>
+                <div class="sidebar-result__desc">Thoughtful, nuanced responses</div>
+                <div class="sidebar-result__stars">★★★★★</div>
+                <a href="#" class="sidebar-result__link">Learn More ›</a>
+              </div>
+              <div class="sidebar-result sidebar-result--sponsored">
+                <div class="sidebar-result__badge">Sponsored Partner</div>
+                <div class="sidebar-result__name">Notion AI</div>
+                <div class="sidebar-result__desc">Plan, write, and organize in one place</div>
+                <div class="sidebar-result__stars">★★★★☆</div>
+                <a href="#" class="sidebar-result__link">Learn More ›</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module 3: Featured Partner Tools (AdSense zone) -->
+          <div class="sidebar-module sidebar-module--partner">
+            <div class="sidebar-module__eyebrow">FEATURED TOOLS FROM PARTNERS</div>
+            <div class="sidebar-partner-list">
+              <div class="sidebar-partner">
+                <div class="sidebar-partner__logo sidebar-partner__logo--ai">AI</div>
+                <div class="sidebar-partner__info">
+                  <div class="sidebar-partner__name">AI Writing Partner</div>
+                  <div class="sidebar-partner__desc">Compare Jasper, Grammarly, and more top writing tools</div>
+                </div>
+              </div>
+              <div class="sidebar-partner">
+                <div class="sidebar-partner__logo sidebar-partner__logo--code">&lt;/&gt;</div>
+                <div class="sidebar-partner__info">
+                  <div class="sidebar-partner__name">Smart Coding Tool</div>
+                  <div class="sidebar-partner__desc">Create with GitHub Copilot, Cursor, and Codeium</div>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-full" style="margin-top:12px; font-size:0.82rem;" data-action="start-quiz">
+              Explore Partners
+            </button>
+            <p class="sidebar-module__disclosure">
+              Partner placements are always clearly labeled. <a href="/disclosure/">Learn how we make money →</a>
+            </p>
+          </div>
+
+          <!-- Ad slot: sticky sidebar -->
+          <div class="ad-slot ad-slot--dark" data-slot-id="ad_sidebar_sticky" role="complementary" aria-label="Advertisement">
+            <div class="ad-slot__placeholder">
+              <span class="ad-slot__tag">Advertisement</span>
+              <span class="ad-slot__code">ad_sidebar_sticky</span>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════
+         HOW IT WORKS
+    ══════════════════════════════════════════════════ -->
+    <section class="how-it-works section" id="how-it-works">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 32px;">
+          <h2 class="section-title reveal">How It Works</h2>
+          <p class="section-sub reveal reveal-delay-1" style="margin: 0 auto;">
+            Three simple steps to finding the right AI tool for you — no technical knowledge needed.
+          </p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card reveal">
+            <div class="step-card__num" aria-hidden="true">1</div>
+            <div class="step-card__icon" aria-hidden="true">🎯</div>
+            <h3 class="step-card__title">Tell us your goal</h3>
+            <p class="step-card__text">Answer a few guided questions about what you need help with. No jargon, no tech knowledge required.</p>
+          </div>
+          <div class="step-card reveal reveal-delay-1">
+            <div class="step-card__num" aria-hidden="true">2</div>
+            <div class="step-card__icon" aria-hidden="true">🤝</div>
+            <h3 class="step-card__title">We match your style</h3>
+            <p class="step-card__text">A few quick follow-ups help us understand how you actually work, so our match really fits you personally.</p>
+          </div>
+          <div class="step-card reveal reveal-delay-2">
+            <div class="step-card__num" aria-hidden="true">3</div>
+            <div class="step-card__icon" aria-hidden="true">✨</div>
+            <h3 class="step-card__title">Get your top matches</h3>
+            <p class="step-card__text">See your personalized AI tool recommendations — with plain-English explanations of what each one does and who it's best for.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════
+         PARTNER / SPONSOR SECTION
+    ══════════════════════════════════════════════════ -->
+    <section class="partners section--tight" id="partners">
+      <div class="container">
+        <div style="margin-bottom: 28px;">
+          <div class="partners__label" aria-label="Sponsored content">⭐ Featured Partners</div>
+          <h2 class="section-title reveal">Tools we think you'll love</h2>
+          <p class="section-sub reveal reveal-delay-1">
+            These partners help keep AI Fit Map free. We only feature tools we'd genuinely recommend — sponsored content is always clearly labeled.
+          </p>
+        </div>
+        <div class="partner-cards">
+          <div class="partner-card reveal">
+            <div class="partner-card__badge">⭐ Sponsored</div>
+            <div class="partner-card__header">
+              <div class="partner-card__logo" style="background:#E8F0FE;" aria-hidden="true">📝</div>
+              <div>
+                <div class="partner-card__name">Notion AI</div>
+                <div class="partner-card__tagline">All-in-one workspace</div>
+              </div>
+            </div>
+            <p class="partner-card__desc">Write, plan, and organize everything in one place — now with AI built right in. Great for people who want notes, tasks, and ideas connected.</p>
+            <div class="partner-card__cta">Learn more <span aria-hidden="true">→</span></div>
+          </div>
+          <div class="partner-card reveal reveal-delay-1">
+            <div class="partner-card__badge">⭐ Sponsored</div>
+            <div class="partner-card__header">
+              <div class="partner-card__logo" style="background:#FEF3E2;" aria-hidden="true">✍️</div>
+              <div>
+                <div class="partner-card__name">Jasper</div>
+                <div class="partner-card__tagline">AI writing assistant</div>
+              </div>
+            </div>
+            <p class="partner-card__desc">A powerful writing tool used by marketers, bloggers, and business owners to write faster without losing their unique voice.</p>
+            <div class="partner-card__cta">Learn more <span aria-hidden="true">→</span></div>
+          </div>
+          <div class="partner-card reveal reveal-delay-2">
+            <div class="partner-card__badge">⭐ Sponsored</div>
+            <div class="partner-card__header">
+              <div class="partner-card__logo" style="background:#EAF4ED;" aria-hidden="true">🎙️</div>
+              <div>
+                <div class="partner-card__name">Otter.ai</div>
+                <div class="partner-card__tagline">AI meeting notes</div>
+              </div>
+            </div>
+            <p class="partner-card__desc">Automatically transcribes and summarizes your meetings, calls, and voice memos. Brilliant for anyone who hates taking notes.</p>
+            <div class="partner-card__cta">Learn more <span aria-hidden="true">→</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════
+         EXPLORE AI TOOLS
+    ══════════════════════════════════════════════════ -->
+    <section class="explore section" id="explore">
+      <div class="container">
+        <div class="explore__header">
+          <div>
+            <p class="eyebrow">Browse by category</p>
+            <h2 class="section-title reveal">Explore AI Tools</h2>
+          </div>
+          <a href="/tools/" class="btn btn-secondary">View all tools →</a>
+        </div>
+        <div class="category-grid">
+          <div class="category-card category-card--a reveal">
+            <div class="category-card__icon" aria-hidden="true">✍️</div>
+            <div class="category-card__name">Writing &amp; Editing</div>
+            <div class="category-card__count">18 tools reviewed</div>
+          </div>
+          <div class="category-card category-card--b reveal reveal-delay-1">
+            <div class="category-card__icon" aria-hidden="true">🎨</div>
+            <div class="category-card__name">Image &amp; Design</div>
+            <div class="category-card__count">12 tools reviewed</div>
+          </div>
+          <div class="category-card category-card--c reveal reveal-delay-2">
+            <div class="category-card__icon" aria-hidden="true">📊</div>
+            <div class="category-card__name">Productivity &amp; Work</div>
+            <div class="category-card__count">14 tools reviewed</div>
+          </div>
+          <div class="category-card category-card--d reveal reveal-delay-3">
+            <div class="category-card__icon" aria-hidden="true">🧠</div>
+            <div class="category-card__name">Learning &amp; Research</div>
+            <div class="category-card__count">9 tools reviewed</div>
+          </div>
+          <div class="category-card category-card--e reveal reveal-delay-1">
+            <div class="category-card__icon" aria-hidden="true">🎙️</div>
+            <div class="category-card__name">Audio &amp; Voice</div>
+            <div class="category-card__count">7 tools reviewed</div>
+          </div>
+          <div class="category-card category-card--f reveal reveal-delay-2">
+            <div class="category-card__icon" aria-hidden="true">🗓️</div>
+            <div class="category-card__name">Planning &amp; Scheduling</div>
+            <div class="category-card__count">11 tools reviewed</div>
+          </div>
+          <div class="category-card category-card--g reveal reveal-delay-3">
+            <div class="category-card__icon" aria-hidden="true">💬</div>
+            <div class="category-card__name">Chatbots &amp; Assistants</div>
+            <div class="category-card__count">8 tools reviewed</div>
+          </div>
+          <div class="category-card category-card--h reveal reveal-delay-4">
+            <div class="category-card__icon" aria-hidden="true">📹</div>
+            <div class="category-card__name">Video &amp; Media</div>
+            <div class="category-card__count">6 tools reviewed</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════
+         TRUST SECTION
+    ══════════════════════════════════════════════════ -->
+    <section class="trust section" id="trust">
+      <div class="container">
+        <div class="trust__inner">
+          <div>
+            <p class="eyebrow">Our approach</p>
+            <h2 class="trust__heading reveal">We match by fit, not by hype</h2>
+            <p class="trust__text reveal reveal-delay-1">
+              The AI world moves fast — and the loudest tools aren't always the right tools for you. We compare AI tools on what actually matters: ease of use, real-world usefulness, and honest value.
+            </p>
+            <div class="trust__points">
+              <div class="trust__point reveal reveal-delay-1">
+                <div class="trust__point-icon trust__point-icon--a" aria-hidden="true">🚫</div>
+                <div class="trust__point-text">
+                  <strong>No paid rankings</strong>
+                  <span>Tools are ranked by fit to your needs — not how much they paid us. Sponsored content is always clearly labeled.</span>
+                </div>
+              </div>
+              <div class="trust__point reveal reveal-delay-2">
+                <div class="trust__point-icon trust__point-icon--b" aria-hidden="true">👓</div>
+                <div class="trust__point-text">
+                  <strong>Plain-English reviews</strong>
+                  <span>Every tool is explained the way a helpful friend would — no jargon, no tech assumptions.</span>
+                </div>
+              </div>
+              <div class="trust__point reveal reveal-delay-3">
+                <div class="trust__point-icon trust__point-icon--c" aria-hidden="true">🔄</div>
+                <div class="trust__point-text">
+                  <strong>Updated regularly</strong>
+                  <span>We keep reviews current as AI tools launch, update, and evolve — so you always get fresh guidance.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="trust__visual reveal reveal-delay-2" aria-label="User satisfaction data">
+            <h3 class="trust__chart-title">What people use AI for most</h3>
+            <div class="trust__bar-list" role="list">
+              <div class="trust__bar-item" role="listitem">
+                <div class="trust__bar-meta">
+                  <span class="trust__bar-label">Writing &amp; communication</span>
+                  <span class="trust__bar-pct">88%</span>
+                </div>
+                <div class="trust__bar-track" aria-hidden="true"><div class="trust__bar-fill fill-a"></div></div>
+              </div>
+              <div class="trust__bar-item" role="listitem">
+                <div class="trust__bar-meta">
+                  <span class="trust__bar-label">Planning &amp; organization</span>
+                  <span class="trust__bar-pct">74%</span>
+                </div>
+                <div class="trust__bar-track" aria-hidden="true"><div class="trust__bar-fill fill-b"></div></div>
+              </div>
+              <div class="trust__bar-item" role="listitem">
+                <div class="trust__bar-meta">
+                  <span class="trust__bar-label">Learning something new</span>
+                  <span class="trust__bar-pct">61%</span>
+                </div>
+                <div class="trust__bar-track" aria-hidden="true"><div class="trust__bar-fill fill-c"></div></div>
+              </div>
+              <div class="trust__bar-item" role="listitem">
+                <div class="trust__bar-meta">
+                  <span class="trust__bar-label">Research &amp; summaries</span>
+                  <span class="trust__bar-pct">45%</span>
+                </div>
+                <div class="trust__bar-track" aria-hidden="true"><div class="trust__bar-fill fill-d"></div></div>
+              </div>
+            </div>
+            <p class="trust__visual-footnote">Based on AI Fit Map user survey · 2,400+ respondents · 2024</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════
+         RE-ENTER QUIZ CTA
+    ══════════════════════════════════════════════════ -->
+    <section class="quiz-cta" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="quiz-cta__inner">
+          <span class="quiz-cta__emoji" aria-hidden="true">🧭</span>
+          <h2 class="quiz-cta__heading reveal" id="cta-heading">Still not sure which AI tool is right for you?</h2>
+          <p class="quiz-cta__sub reveal reveal-delay-1">
+            Our 2-minute quiz looks at how you actually work and what you need — then gives you a personal match, not just a generic list.
+          </p>
+          <div class="quiz-cta__actions reveal reveal-delay-2">
+            <button class="btn btn-primary btn-lg" data-action="start-quiz">START YOUR AI MATCH →</button>
+            <a href="#explore" class="btn btn-secondary btn-lg">Browse All Tools</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'; ?>
+
+<?php if (($pageType ?? 'app') === 'legal'): ?>
+  <?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/scripts-core.php'; ?>
+<?php else: ?>
+  <?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/scripts-app.php'; ?>
+<?php endif; ?>
+
+</body>
+</html>
